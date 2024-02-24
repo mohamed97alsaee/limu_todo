@@ -45,6 +45,7 @@ class _AddingDialogState extends State<AddingDialog> {
                         Provider.of<TasksProvider>(context, listen: false)
                             .addNewTask(TaskModel(
                                 title: titleController.text,
+                                isCompleted: false,
                                 createdAt: DateTime.now()));
                         titleController.clear();
                         Navigator.pop(context);

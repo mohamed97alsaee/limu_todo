@@ -24,4 +24,12 @@ class TasksProvider with ChangeNotifier {
       notifyListeners();
     }
   }
+
+  storeToStorage() {
+    for (var i in completedTasks) {
+      i.toJson();
+    }
+  }
+
+  // getFromStorage
 }
