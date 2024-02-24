@@ -1,6 +1,6 @@
 import 'package:limu_todo/providers/tasks_provider.dart';
 import 'package:limu_todo/widgets/adding_dialog.dart';
-import 'package:limu_todo/widgets/tast_card.dart';
+import 'package:limu_todo/widgets/task_card.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter/material.dart';
@@ -66,6 +66,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                     // inProgressTasks
                                     //     .remove(inProgressTasks[index]);
                                     // setState(() {});
+                                    Provider.of<TasksProvider>(context,
+                                            listen: false)
+                                        .switchTask(tasksCosumer
+                                            .inProgressTasks[index]);
                                   });
                             },
                           ),
@@ -83,11 +87,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               return TaskCard(
                                   taskModel: tasksCosumer.completedTasks[index],
                                   onTap: () {
-                                    // completedTasks[index].isCompleted =
-                                    //     !completedTasks[index].isCompleted;
-                                    // inProgressTasks.add(completedTasks[index]);
-                                    // completedTasks.remove(completedTasks[index]);
-                                    // setState(() {});
+                                    Provider.of<TasksProvider>(context,
+                                            listen: false)
+                                        .switchTask(
+                                            tasksCosumer.completedTasks[index]);
                                   });
                             },
                           ),
